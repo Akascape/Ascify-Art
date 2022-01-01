@@ -7,7 +7,8 @@ This is a python based ASCII art maker with colored versions application!
 <br>• Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and character you want to use
 <br>• Then simply click the CREATE button, the output image and text file will be saved in the same root diretory.
-<br>![Screenshot 2022-01-01 183949](https://user-images.githubusercontent.com/89206401/147851310-e18649f3-c187-4f25-825e-69d118124d49.png)
+<br>
+<br>![Screenshot 2022-01-01 183949](https://user-images.githubusercontent.com/89206401/147852481-683d2bd4-b284-4e8d-8498-4647e069e46a.png)
 # Demo
 | Original | Result 1 | Result 2 | Result 3 |
 |:--------:|:--------:|:--------:|:--------:|
