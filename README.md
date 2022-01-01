@@ -1,7 +1,7 @@
 # Ascify-Art
 This is a python based ASCII art maker with colored versions application!
 # How to Install?
-<br> You can download and use the python version if you want, modules will be automatically downloaded (PIL).
+<br> You can download and use the python version if you want, modules will be automatically downloaded (PIL and matplotlib).
 <br> For basic windows user, you can also download the windows exe version which is converted from python using Auto-Py-To-Exe Converter.
 # How to use?
 <br>• Click the OPEN button and choose your image file
