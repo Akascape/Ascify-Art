@@ -2,7 +2,7 @@
 This is a python based colored ASCII art maker application!
 # How to Install?
 <br> You can download and use the python version if you want, modules will be automatically downloaded (PIL and matplotlib).
-<br> For basic windows user, you can also download the windows exe version which is converted from python using Auto-Py-To-Exe Converter.
+<br> For basic windows users, you can just download the windows exe version from the [here](https://github.com/Akascape/Ascify-Art/releases/download/v0.1/Ascify-Art_win64.zip)(Converted using Auto-Py-To-Exe Converter).
 # How to use?
 <br>• Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and character you want to use
