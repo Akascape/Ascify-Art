@@ -10,7 +10,7 @@ This is a python based ASCII art maker with colored versions application!
 <br>![Screenshot 2022-01-01 183949](https://user-images.githubusercontent.com/89206401/147851310-e18649f3-c187-4f25-825e-69d118124d49.png)
 # Demo
 | Original | Result1 | Result2
-|:--------:|:------:|
+|:--------:|:-------:|:------:|
 |![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png) | ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852092-8eed3755-bc6e-48ec-8db9-d30f4e76eba6.png)
 |
 # More Info
