@@ -10,8 +10,8 @@ This is a python based ASCII art maker application!
 # Demo
 | Original | Result |
 |:--------:|:------:|
-| ![Original_hand]![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png)
- | ![Result_hand] ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png)
+|![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png)
+ |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png)
 |
 # More Info
 <br> This application is a modified version of [raphsonite](https://raphsonite.github.io/)'s ascii.py with some improvements and GUI, I hope it helps you generate some good ASCII art. Thanks!
