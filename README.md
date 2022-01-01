@@ -11,7 +11,7 @@ This is a python based colored ASCII art maker application!
 <br>
 <br>![Screenshot 2022-01-01 183949](https://user-images.githubusercontent.com/89206401/147852516-50c3de92-18cf-4b66-8bbc-f6e04912c8aa.png)
 # Demo
-| Original | Result 1 | Result 2 | Result 3 |
+| Original | Result 1 (all characters) | Result 2 (Less characters) | Result 3 (Big Size) |
 |:--------:|:--------:|:--------:|:--------:|
 |![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png) | ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852092-8eed3755-bc6e-48ec-8db9-d30f4e76eba6.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852255-43e28d34-1c61-480e-b13f-ce4ed9c9a494.png)
 # More Info
