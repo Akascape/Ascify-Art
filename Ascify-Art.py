@@ -3,7 +3,6 @@ import math
 import tkinter
 from tkinter import Tk, Entry, Button, Label, ttk, messagebox, filedialog
 import os
-import matplotlib.font_manager
 import webbrowser
 import sys
 import pkg_resources
@@ -18,12 +17,14 @@ if missing:
             y=missingset[x]
             os.system('python -m pip install '+y)
         from PIL import Image, ImageDraw, ImageFont
+        import matplotlib.font_manager
         pass
     elif res=="no":
         print("Error: Required modules not available! \nWithout the modules you can't use this program. Please install them first!")
         sys.exit()
 else:
     from PIL import Image, ImageDraw, ImageFont
+    import matplotlib.font_manager
 def resource_path0(relative_path):
     base_path = getattr(
         sys,
