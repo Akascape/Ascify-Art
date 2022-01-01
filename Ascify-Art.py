@@ -7,7 +7,7 @@ import matplotlib.font_manager
 import webbrowser
 import sys
 import pkg_resources
-required = {'pillow'}
+required = {'pillow', 'matplotlib'}
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing = required - installed
 missingset=[*missing,]
