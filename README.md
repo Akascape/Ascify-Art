@@ -6,7 +6,7 @@ This is a python based colored ASCII art generator application!
 <br>(Converted using Auto-Py-To-Exe Converter).
 # How to use?
 <br>• Click the OPEN button and choose your image file
-<br>• Then choose your desired font, size and character you want to use
+<br>• Then choose your desired font, size and characters you want to use
 <br>• Check the Export text option if you want text file also generated with the main image.
 <br>• Then simply click the CREATE button, the output image and text file will be saved in the same root diretory.
 <br>• If you want to ascify a sequence of images(to make a video), then just click the 🔃 button and choose the folder having the image sequence. Then click CREATE, the ascified image sequence will be saved in a new folder. 
