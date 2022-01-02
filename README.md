@@ -16,6 +16,6 @@ This is a python based colored ASCII art generator for free!
 # Demo
 | Original | Result 1 (All characters) | Result 2 (Less characters) | Result 3 (Big size) |
 |:--------:|:--------:|:--------:|:--------:|
-|![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png) | ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852092-8eed3755-bc6e-48ec-8db9-d30f4e76eba6.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852255-43e28d34-1c61-480e-b13f-ce4ed9c9a494.png)
+|![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png) | ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852092-8eed3755-bc6e-48ec-8db9-d30f4e76eba6.png) |![Demo Ascified](https://user-images.githubusercontent.com/89206401/147874633-4f166399-02b8-4c76-b84c-84d26c2d3705.png)
 # More Info
 <br> This application is a modified version of [raphsonite](https://raphsonite.github.io/)'s ascii.py with some improvements and GUI, I hope it helps you to generate some good ASCII art. Thanks!
