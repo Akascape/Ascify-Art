@@ -68,7 +68,10 @@ def prestep():
             if res1=='yes':
                 os.remove(file[:-4]+"_Ascified.png")
                 if var5.get()==1:
-                    os.remove(file[:-4]+"_Ascified.txt")
+                    if os.path.exists(file[:-4]+"_Ascified.txt"):
+                        os.remove(file[:-4]+"_Ascified.txt")
+                    else:
+                        pass
             elif res1=='no':
                 return()
         Convert(file)
