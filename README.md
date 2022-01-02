@@ -2,14 +2,17 @@
 This is a python based colored ASCII art generator application!
 # How to Install?
 <br> You can download and use the python version if you want, modules will be automatically downloaded (PIL and matplotlib).
-<br> For basic windows users, you can just download the windows exe version from the [here](https://github.com/Akascape/Ascify-Art/releases/download/v0.1/Ascify-Art_win64.zip)
+<br> For basic windows users, you can just download the windows exe version from the [here](https://github.com/Akascape/Ascify-Art/releases/download/v0.2/Ascify-Art_win64.zip)
 <br>(Converted using Auto-Py-To-Exe Converter).
 # How to use?
 <br>• Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and character you want to use
+<br>• Check the Export text option if you want text file also generated with the main image.
 <br>• Then simply click the CREATE button, the output image and text file will be saved in the same root diretory.
-<br>
-<br>![Screenshot 2022-01-01 183949](https://user-images.githubusercontent.com/89206401/147852516-50c3de92-18cf-4b66-8bbc-f6e04912c8aa.png)
+<br>• If you want to ascify a sequence of images(to make a video), then just click the 🔃 button and choose the folder having the image sequence. Then click CREATE, the ascified image sequence will be saved in a new folder. 
+<br> USEFUL TIP: Use my [Vdo-Img-Conversion-Tools](https://github.com/Akascape/Vdo-Img-Conversion-Tools) to convert your video to image sequence and also do the vice versa easily. Its a similar type of application made with Python having GUI.
+# UI
+<br>![Screenshot 2022-01-02 161348](https://user-images.githubusercontent.com/89206401/147874065-0892f73e-602e-4ac5-a631-31567355bf12.png)
 # Demo
 | Original | Result 1 (All characters) | Result 2 (Less characters) | Result 3 (Big size) |
 |:--------:|:--------:|:--------:|:--------:|
