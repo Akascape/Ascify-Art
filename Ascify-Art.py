@@ -172,7 +172,9 @@ def info():
     "This program can crate art with colored ASCII characters!"
     "\n➤Click the OPEN button and choose your image file"
     "\n➤Then choose the font, size and character you want in the output"
+    "\n➤Check the Export text option if you want to generate text file also with the main image"
     "\n➤Then simply click the CREATE button, the output image and text file will be saved in the same root diretory."
+    "\n➤If you want to ascify a sequence of images(to make a video), then just click the 🔃 button and choose the folder having the image sequence, then click CREATE, the ascified image sequence will be saved in a new folder."
     "\n\nDeveloper: Akash Bora (a.k.a. Akascape)\nIf you have any issue then contact me on Github."
     "\nVersion-0.2")
 def Disabled():
