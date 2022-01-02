@@ -14,7 +14,7 @@ You can download and use the [python version](https://github.com/Akascape/Ascify
 ## UI
 ![UI](https://user-images.githubusercontent.com/89206401/147874065-0892f73e-602e-4ac5-a631-31567355bf12.png)
 ## Demo
-| Original | Result 1 (All characters) | Result 2 (Less characters) | Result 3 (Big Size)                                       |
+| Original | Result 1 (All characters) | Result 2 (Less characters) | Result 3 (Big Size)|
 |:--------:|:-------------------------:|:--------------------------:|:------------------:|
 |![Demo](https://user-images.githubusercontent.com/89206401/147851171-4d635140-e7b3-45e8-b634-f411ee416e3e.png) |![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147851176-576b231b-eccc-42ec-8a11-cebc68db9a7a.png) | ![Demo_Ascified](https://user-images.githubusercontent.com/89206401/147852092-8eed3755-bc6e-48ec-8db9-d30f4e76eba6.png) | ![Demo Ascified](https://user-images.githubusercontent.com/89206401/147874980-d204d1fa-d46f-4149-827e-b7d02655aba5.png) |
 ### More Info
