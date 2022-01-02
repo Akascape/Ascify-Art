@@ -1,7 +1,7 @@
 # Ascify-Art
 This is a python based colored ASCII art generator for free!
 # How to Install?
-<br> You can download and use the python version if you want, modules will be automatically downloaded (PIL and matplotlib).
+<br> You can download and use the [python version](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.2.zip) if you want, modules will be automatically downloaded (PIL and matplotlib).
 <br> For basic windows users, you can just download and use the windows executable version from [here](https://github.com/Akascape/Ascify-Art/releases/download/v0.2/Ascify-Art_win64.zip)
 <br>(Converted using Auto-Py-To-Exe Converter).
 # How to use?
