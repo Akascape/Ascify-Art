@@ -5,7 +5,7 @@ You can download and use the [python version](https://github.com/Akascape/Ascify
 <br> For basic windows users, you can just download and use the windows executable version from [here](https://github.com/Akascape/Ascify-Art/releases/download/v0.2/Ascify-Art_win64.zip)
 <br>(Converted using Auto-Py-To-Exe Converter).
 ## How to use?
-<br>• Click the OPEN button and choose your image file
+• Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and characters you want to use
 <br>• Check the Export text option if you want to generate text file also with the main image
 <br>• Then simply click the CREATE button, the output image and text file will be saved in the same root diretory.
