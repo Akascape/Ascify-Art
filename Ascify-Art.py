@@ -18,9 +18,7 @@ if missing:
         for x in range(len(missingset)):
             y=missingset[x]
             os.system('python -m pip install '+y)
-        from PIL import Image, ImageDraw, ImageFont
-        import matplotlib.font_manager
-        pass
+        sys.exit()
     elif res=="no":
         print("Error: Required modules not available! \nWithout the modules you can't use this program. Please install them first!")
         sys.exit()
