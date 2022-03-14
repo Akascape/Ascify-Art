@@ -6,7 +6,6 @@ This is a python based colored ASCII art generator for free!
 ## How to Install?
 - For windows users, just extract the downloaded zip file and run Ascify-Art.exe to use it.
 - For python users, just run Ascify-Art.py file to open it. If any module error pops up then click on yes so that the modules get automatically downloaded and installed(PIL and matplotlib). After installation of modules, restart the program and its is ready to use.
-<br>
 ## How to use?
 • Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and characters you want to use
