@@ -5,7 +5,7 @@ This is a python based automatic colored ASCII art generator for free!
 ### [<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Akascape/Ascify-Art?color=9508e2&label=Source%20Code&logo=Python&logoColor=yellow&style=for-the-badge"  width="250">](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.3.zip)
 ## How to Install?
 - For windows users, just extract the downloaded zip file and run Ascify-Art.exe to use it.
-- For python users, just run Ascify-Art.py file to open it. If any module error pops up then click on yes so that the modules get automatically downloaded and installed(PIL and matplotlib). After installation of modules, restart the program and its is ready to use.
+- For python users, just run Ascify-Art.py file to open it. If any module error pops up then click on yes so that the modules get automatically downloaded and installed(PIL and matplotlib). After installation of modules, restart the program and it is ready to use.
 ## How to use?
 • Click the OPEN button and choose your image file
 <br>• Then choose your desired font, size and characters you want to use
