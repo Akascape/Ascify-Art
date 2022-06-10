@@ -1,5 +1,5 @@
 # Ascify-Art
-This is a python based colored ASCII art generator for free!
+This is a python based automatic colored ASCII art generator for free!
 ## DOWNLOAD
 ### [<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Akascape/Ascify-Art?display_name=release&label=Windows&logo=Windows&logoColor=019df4&style=for-the-badge" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.2/Ascify-Art_win64.zip)
 ### [<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Akascape/Ascify-Art?color=9508e2&label=Source%20Code&logo=Python&logoColor=yellow&style=for-the-badge"  width="250">](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.2.zip)
