@@ -18,7 +18,9 @@ if missing:
         for x in range(len(missingset)):
             y=missingset[x]
             os.system('python -m pip install '+y)
-        sys.exit()
+        from PIL import Image, ImageDraw, ImageFont
+        import matplotlib.font_manager
+        pass
     elif res=="no":
         print("Error: Required modules not available! \nWithout the modules you can't use this program. Please install them first!")
         sys.exit()
@@ -34,12 +36,12 @@ def resource_path0(relative_path):
 def openfile():
     global file, folder
     if firstLabel['text']=="Choose Image":
-        file=tkinter.filedialog.askopenfilename(filetypes =[('PNG', '*.png'),('All Files', '*.*')])
+        file=tkinter.filedialog.askopenfilename(filetypes =[('Images', ['*.png','*.jpg','*.jpeg']),('All Files', '*.*')])
         folder=""
     else:
         folder=tkinter.filedialog.askdirectory()
         file=""
-    if(len(file)>=1 or len(folder)>=1):
+    if file or folder:
         Img['text']='OPEN AGAIN'
         Img['bg']='#D0CECE'
     else:
@@ -68,12 +70,11 @@ def prestep():
                 if var5.get()==1:
                     if os.path.exists(file[:-4]+"_Ascified.txt"):
                         os.remove(file[:-4]+"_Ascified.txt")
-                    else:
-                        pass
             elif res1=='no':
                 return()
         Convert(file)
-        messagebox.showinfo("Done! :)","Image Ascified!")
+        if os.path.exists(file[:-4]+"_Ascified.png"):
+            messagebox.showinfo("Done! :)","Image Ascified!")
     else:
         global newfolder
         allitems=glob.glob(folder+'\*.png')
@@ -101,7 +102,8 @@ def prestep():
             root.update_idletasks()
             count+=1
         Log.place_forget()
-        messagebox.showinfo("Done! :)","Image Ascified!")
+        if len(os.listdir(newfolder))>=2:
+            messagebox.showinfo("Done! :)","Image Ascified!")
 def Convert(file):
     try:
         Log.place(x=185,y=235)
@@ -127,7 +129,7 @@ def Convert(file):
                 else:
                     os.mkdir(newfolder+"/Text version/")
                 text_file = open(newfolder+"/Text version/"+prefile[:-4]+"_Ascified.txt", "w")
-        im = Image.open(file)
+        im = Image.open(file).convert('RGB')
         getfont=fontbox.get()
         y=flist.index(getfont)
         z=plist[y]
@@ -170,14 +172,12 @@ def callback(url):
     webbrowser.open_new_tab("https://github.com/Akascape/Ascify-Art")
 def info():
     messagebox.showinfo("HELP",
-    "This program can crate art with colored ASCII characters!"
-    "\n➤Click the OPEN button and choose your image file"
-    "\n➤Then choose the font, size and character you want in the output"
-    "\n➤Check the Export text option if you want to generate text file also with the main image"
-    "\n➤Then simply click the CREATE button, the output image and text file will be saved in the same root diretory."
-    "\n➤If you want to ascify a sequence of images(to make a video), then just click the 🔃 button and choose the folder having the image sequence, then click CREATE, the ascified image sequence will be saved in a new folder."
+    "This program can convert images to colored ASCII art!"
+    "\n➤ Click the OPEN button and choose your image file"
+    "\n➤ Then choose the desired font, size and character you want in the output"
+    "\n➤ Then simply click the CREATE button, the output image and text file will be saved in the same root diretory."
     "\n\nDeveloper: Akash Bora (a.k.a. Akascape)\nIf you have any issue then contact me on Github."
-    "\nVersion-0.2")
+    "\nVersion-0.3")
 def Disabled():
     Img['state']=DISABLED
     CharEntry['state']=DISABLED
@@ -256,7 +256,7 @@ rebtn.place(x=350,y=153)
 Change=Button(root, width=2,bg="#FFFFFF",fg="black", text="🔃",font=(10),relief="sunken",cursor='hand2', highlightthickness=0,borderwidth=0,padx=0,pady=0,command=switch2)
 Change.place(x=355,y=29)
 var5 = IntVar()
-var5.set(1)
+var5.set(0)
 tbox=Checkbutton(root, text="Export Text",bg="#FFFFFF",variable=var5,onvalue=1, offvalue=0)
 tbox.place(x=340,y=250, anchor='center')
 root.mainloop()
