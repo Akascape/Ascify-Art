@@ -13,7 +13,7 @@ This is a python based automatic colored ASCII art generator for free!
 <br>• Then simply click the CREATE button, the output image and text file will be saved in the same root diretory.
 <br>• If you want to ascify a sequence of images(to make a video), then just click the 🔃 button and choose the folder having the image sequence. Then click CREATE, the ascified image sequence will be saved in a new folder. 
 <br> USEFUL TIP: Use my [`Vdo-Img-Conversion-Tools`](https://github.com/Akascape/Vdo-Img-Conversion-Tools) to convert your video to image sequence and also do the vice versa easily. It's a similar type of application made with Python(GUI).
-### Known Issue: Do not use png images having bit depth more than 24! 
+### Known Issue: Do not use png images having bit depth more than 24! (will be fixed soon!)
 ## UI
 ![UI](https://user-images.githubusercontent.com/89206401/147874065-0892f73e-602e-4ac5-a631-31567355bf12.png)
 ## Demo
