@@ -1,5 +1,6 @@
-# Ascify-Art
-This is a python based automatic colored ASCII art generator for free!
+![header](https://user-images.githubusercontent.com/89206401/216651834-91bc5c02-4b25-4789-8ea7-524015086771.png)
+
+### <p align='center'> A python based automatic ASCII art generator for free!
 
 ## DOWNLOAD
 
