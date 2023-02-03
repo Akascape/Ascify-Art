@@ -3,12 +3,14 @@ This is a python based automatic colored ASCII art generator for free!
 
 ## DOWNLOAD
 
+### <p align='center'> Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art_Basic-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.5/Ascify-Art_basic_win64.zip)  </br>
+<br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.5.zip) <br> Don't forget to leave a ⭐ </p>
+
 ## How to Install?
 - For windows users, just extract the downloaded zip file and run Ascify-Art executable
 - For python users, install the requirements via pip and just run Ascify-Art.py
 
-## [Documentation](https://github.com/Akascape/Ascify-Art/wiki)
-
+### [Documentation](https://github.com/Akascape/Ascify-Art/wiki)
 
 ## UI and examples
 ![Screenshot](https://user-images.githubusercontent.com/89206401/216638864-1072f934-1934-44bb-a8ef-cf0e780f8357.jpg)
