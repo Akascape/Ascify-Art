@@ -9,6 +9,8 @@
 
 <br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.5.zip) <br> Don't forget to leave a ⭐ </p>
 
+**CURRENT VERSION: 0.5**
+
 ## How to Install?
 - For windows users, just extract the downloaded zip file and run Ascify-Art executable
 - For python users, install the requirements via pip and just run Ascify-Art.py
