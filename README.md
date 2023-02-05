@@ -4,7 +4,7 @@
 
 ## DOWNLOAD
 
-### <p align='center'> Basic Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art_Basic-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.5/Ascify-Art_basic_win64.zip)  <p align='center'> Support the development by purchasing the full version on gumroad which contains features like the color tab, size tab and more. <p align='center'> [<img src="https://img.shields.io/badge/BUY-Ascify_Art_Full-informational?&logo=Microsoft&logoColor=blue&color=green" width="300">](https://akascape.gumroad.com/l/ascify-art) 
+### <p align='center'> Basic Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art_Basic-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.5/Ascify-Art_basic_win64.zip)  <p align='center'> Support the development by purchasing the full version on gumroad which contains features like the color tab, size tab and more. <p align='center'> [<img src="https://img.shields.io/badge/GET-Ascify_Art_Full-informational?&logo=Microsoft&logoColor=blue&color=green" width="300">](https://akascape.gumroad.com/l/ascify-art) 
 </br>
 
 <br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.5.zip) <br> Don't forget to leave a ⭐ </p>
