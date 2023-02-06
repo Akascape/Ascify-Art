@@ -11,6 +11,15 @@
 
 **CURRENT VERSION: 0.5**
 
+## FEATURES
+- Convert any image to ASCII art with live preview
+- Convert image sequence easily with one click
+- Specify characters you want
+- Specify size precisely [size tab available with full version]
+- Adjust colors [color tab available with full version]
+- Load any font you want
+- Export the files with just one click
+
 ## How to Install?
 - For windows users, just extract the downloaded zip file and run Ascify-Art executable
 - For python users, install the requirements via pip and just run Ascify-Art.py
