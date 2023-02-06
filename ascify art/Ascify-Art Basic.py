@@ -8,7 +8,7 @@
                    ╔═╝║                 
                    ╚══╝
                    
-Version: 0.5 Basic
+Version: 0.51 Basic
 Developer: Akash Bora (Akascape)
 License: MIT
 More info: https://github.com/Akascape/Ascify-Art
@@ -221,7 +221,13 @@ def open_sequence():
             entry_location.configure(text=dir_[:25]+"..."+dir_[-5:])
         else:
             entry_location.configure(text=dir_)
-        
+            
+        try:
+            RightClickMenu.delete("Next Frame")
+            RightClickMenu.delete("Previous Frame")
+        except:
+            None
+            
         var.set(os.path.basename(dir_img)+"_Ascified")
         RightClickMenu.add_command(label="Next Frame", command=lambda: frame_next())
         RightClickMenu.add_command(label="Previous Frame", command=lambda: frame_previous())
@@ -441,7 +447,7 @@ def export():
                 label_11.configure(text="Frame: "+str(count))
                 file = i
                 operation()
-                exported_file = os.path.join(new_dir, os.path.basename(file)+var.get()+"."+format_.get())
+                exported_file = os.path.join(new_dir, os.path.basename(file)[:-4]+"_ascified."+format_.get())
                 outputImage.save(exported_file)
                 count+=1
                 
@@ -476,7 +482,7 @@ def new_window():
     top_level.wm_iconbitmap()
     top_level.iconphoto(False, icopath)
     
-    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.5 Basic", font=("Roboto",15))
+    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.51 Basic", font=("Roboto",15))
     label_top.grid(padx=20, pady=20, sticky="w")
     
     desc = "Developed by Akash Bora (Akascape) \nThis is the basic version of Ascify-Art \nLicense: MIT \nCopyright 2023"
@@ -532,4 +538,3 @@ info.grid(row=6, column=0, sticky="sw", padx=20, pady=20)
 
 root.mainloop()
 #------------------------------------------------------------------------------------------------#
-
