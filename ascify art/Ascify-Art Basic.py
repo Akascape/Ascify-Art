@@ -20,8 +20,7 @@ import tkinter as tk
 from tkinter import ttk, font, filedialog
 import threading
 import os
-from PIL import Image, ImageDraw, ImageTk, ImageFont, ImageEnhance, UnidentifiedImageError
-import CTkColorPicker
+from PIL import Image, ImageDraw, ImageTk, ImageFont, UnidentifiedImageError
 import math
 import glob
 import matplotlib.font_manager
