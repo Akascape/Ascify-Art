@@ -20,13 +20,15 @@
 - Export the files with just one click
 
 ## How to Install?
-- For windows users, just extract the downloaded zip file and run Ascify-Art executable
+- For windows users, just extract the downloaded zip file and **run Ascify-Art executable**
 - For python users, install the requirements via pip and just run Ascify-Art.py
 
 ### [Documentation](https://github.com/Akascape/Ascify-Art/wiki)
 
 ## UI and examples
-![Screenshot](https://user-images.githubusercontent.com/89206401/216638864-1072f934-1934-44bb-a8ef-cf0e780f8357.jpg)
+![Screenshot](https://user-images.githubusercontent.com/89206401/218322798-7995d708-6e62-42bc-8cc0-b7341cdf17df.jpg)
+![Screenshot](https://user-images.githubusercontent.com/89206401/218322753-6b13884a-f88d-40bb-8e85-5f01477a238a.jpg)
+![Screenshot](https://user-images.githubusercontent.com/89206401/218322824-246ffc61-6b60-46f8-8723-484940b16d5d.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/216637402-78732867-2a74-4da9-8add-e90d994099bf.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/216639887-63b7af6c-55f3-4943-95a1-5dfbb7d52dc5.jpg)
 
