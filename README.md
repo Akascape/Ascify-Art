@@ -4,19 +4,19 @@
 
 ## DOWNLOAD
 
-### <p align='center'> Basic Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art_Basic-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.5/Ascify-Art_basic_win64.zip)  <p align='center'>
+### <p align='center'> Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.6/Ascify-Art_win64.zip)  <p align='center'>
 
 <br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.5.zip) <br> Don't forget to leave a ⭐ </p>
 
-**CURRENT VERSION: 0.5**
+**CURRENT VERSION: 0.6**
 
 ## FEATURES
-- Convert any image to ASCII art with live preview
-- Convert image sequence easily with one click
-- Specify characters you want
-- Specify size precisely [size tab available with full version]
-- Adjust colors [color tab available with full version]
-- Load any font you want
+- Convert any image to ASCII art with **live preview**
+- Convert **image sequence** easily with one click
+- Specify **characters you want**
+- Specify **size** precisely
+- Adjust **colors**
+- Load **any font you want**
 - Export the files with just one click
 
 ## How to Install?
