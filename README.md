@@ -11,6 +11,7 @@
 **CURRENT VERSION: 0.6**
 
 ## FEATURES
+- Open-Source and free
 - Convert any image to ASCII art with **live preview**
 - Convert **image sequence** easily with one click
 - Specify **characters you want**
