@@ -30,7 +30,7 @@
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218322798-7995d708-6e62-42bc-8cc0-b7341cdf17df.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218322753-6b13884a-f88d-40bb-8e85-5f01477a238a.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218322824-246ffc61-6b60-46f8-8723-484940b16d5d.jpg)
-![Screenshot](https://user-images.githubusercontent.com/89206401/216637402-78732867-2a74-4da9-8add-e90d994099bf.jpg)
+![Screenshot](https://user-images.githubusercontent.com/89206401/218327579-fe255d09-62f4-41f0-a91d-98637906ea9d.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218323378-89ffbb3f-a1d9-4618-9140-96bc7261f02b.jpg)
 
 ## License
