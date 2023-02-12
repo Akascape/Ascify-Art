@@ -14,9 +14,7 @@
 - Convert any image to ASCII art with live preview
 - Convert image sequence easily with one click
 - Specify characters you want
-- Specify size precisely [size tab available with full version]
-- Adjust colors [color tab available with full version]
-- Load any font you want
+- Load any font from system
 - Export the files with just one click
 
 ## How to Install?
