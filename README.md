@@ -30,7 +30,7 @@
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218322753-6b13884a-f88d-40bb-8e85-5f01477a238a.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/218322824-246ffc61-6b60-46f8-8723-484940b16d5d.jpg)
 ![Screenshot](https://user-images.githubusercontent.com/89206401/216637402-78732867-2a74-4da9-8add-e90d994099bf.jpg)
-![Screenshot](https://user-images.githubusercontent.com/89206401/216639887-63b7af6c-55f3-4943-95a1-5dfbb7d52dc5.jpg)
+![Screenshot](https://user-images.githubusercontent.com/89206401/218323378-89ffbb3f-a1d9-4618-9140-96bc7261f02b.jpg)
 
 ## License
 [<img src="https://user-images.githubusercontent.com/89206401/168461242-884f25ce-eb67-406a-9d98-cf8d0f28cb43.png" width=100>](https://github.com/Akascape/Ascify-Art/blob/Ascify-Art_v0.5/LICENSE)
