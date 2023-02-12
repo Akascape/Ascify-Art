@@ -1,3 +1,4 @@
 customtkinter
+CTkColorPicker
 pillow
 matplotlib
