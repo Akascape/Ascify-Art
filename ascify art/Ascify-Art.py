@@ -8,7 +8,7 @@
                    ╔═╝║                 
                    ╚══╝
                    
-Version: 0.6
+Version: 0.7
 Developer: Akash Bora (Akascape)
 License: MIT
 More info: https://github.com/Akascape/Ascify-Art
@@ -42,12 +42,15 @@ root.wm_iconbitmap()
 
 if sys.platform.startswith("win"):
     # Apply the mica theme for windows if possible (works with windows 11)
-    from ctypes import windll, byref, sizeof, c_int
-    HWND = windll.user32.GetParent(root.winfo_id())
-    if sys.getwindowsversion().build < 22523:    
-        windll.dwmapi.DwmSetWindowAttribute(HWND, 1029, byref(c_int(0x01)), sizeof(c_int))
-    else:
-        windll.dwmapi.DwmSetWindowAttribute(HWND, 35, byref(c_int(35)), sizeof(c_int))
+    try:
+        from ctypes import windll, byref, sizeof, c_int
+        HWND = windll.user32.GetParent(root.winfo_id())
+        if sys.getwindowsversion().build < 22523:    
+            windll.dwmapi.DwmSetWindowAttribute(HWND, 1029, byref(c_int(0x01)), sizeof(c_int))
+        else:
+            windll.dwmapi.DwmSetWindowAttribute(HWND, 35, byref(c_int(35)), sizeof(c_int))
+    except:
+        pass
         
 def exit_program():
     x = tk.messagebox.askquestion("Exit?", "Do you want to close this program?")
@@ -467,7 +470,10 @@ def populate(frame):
     for filename in sorted(all_fonts)[:l]: 
         if "Emoji" not in filename and "18030" not in filename:
             font_load = ImageFont.FreeTypeFont(filename)
-            name = font_load.getname()[0]
+            if (font_load.getname()[1]).lower()!="regular":
+                name = " ".join(font_load.getname())
+            else:
+                name = font_load.getname()[0]
             label = customtkinter.CTkButton(frame, text=name, font=(name, 16), fg_color="#1b202c", text_color="white",
                                             anchor="w", command=lambda event=filename: change_font(event)).grid(sticky="w")
             loaded_fonts.append(name)
@@ -503,7 +509,10 @@ def add_more_fonts():
     for filename in sorted(all_fonts)[l:l+50]:
         if "Emoji" not in filename and "18030" not in filename:
             font_load = ImageFont.FreeTypeFont(filename)
-            name = font_load.getname()[0]
+            if (font_load.getname()[1]).lower()!="regular":
+                name = " ".join(font_load.getname())
+            else:
+                name = font_load.getname()[0]
             label = customtkinter.CTkButton(frame, text=name, font=(name, 16), fg_color="#1b202c", text_color="white",
                                             anchor="w", command=lambda event=filename: change_font(event)).grid(sticky="w")
             loaded_fonts.append(name)
@@ -625,12 +634,12 @@ def new_window():
     top_level.protocol("WM_DELETE_WINDOW", exit_top_level)
     top_level.minsize(400,200)
     top_level.title("About")
-    top_level.attributes("-topmost", True)
+    top_level.transient(root)
     top_level.resizable(width=False, height=False)
     top_level.wm_iconbitmap()
     top_level.iconphoto(False, icopath)
     
-    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.6", font=("Roboto",15))
+    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.7", font=("Roboto",15))
     label_top.grid(padx=20, pady=20, sticky="w")
     
     desc = "Developed by Akash Bora (Akascape) \n \nLicense: MIT \nCopyright 2023"
@@ -686,4 +695,3 @@ info.grid(row=6, column=0, sticky="sw", padx=20, pady=20)
 
 root.mainloop()
 #------------------------------------------------------------------------------------------------#
-
