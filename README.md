@@ -8,7 +8,7 @@
 
 <br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.6.zip) <br> Don't forget to leave a ⭐ </p>
 
-**CURRENT VERSION: 0.6**
+**CURRENT VERSION: 0.7**
 
 ## FEATURES
 - **Open-Source** and free
