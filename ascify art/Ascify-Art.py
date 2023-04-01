@@ -1,13 +1,13 @@
 """
-╔═══╗           ╔═╗         ╔═══╗    ╔╗ 
+╔═══╗           ╔═╗         ╔═══╗    ╔╗
 ║╔═╗║           ║╔╝         ║╔═╗║   ╔╝╚╗
 ║║ ║║╔══╗╔══╗╔╗╔╝╚╗╔╗ ╔╗    ║║ ║║╔═╗╚╗╔╝
-║╚═╝║║══╣║╔═╝╠╣╚╗╔╝║║ ║║    ║╚═╝║║╔╝ ║║ 
+║╚═╝║║══╣║╔═╝╠╣╚╗╔╝║║ ║║    ║╚═╝║║╔╝ ║║
 ║╔═╗║╠══║║╚═╗║║ ║║ ║╚═╝║    ║╔═╗║║║  ║╚╗
 ╚╝ ╚╝╚══╝╚══╝╚╝ ╚╝ ╚═╗╔╝    ╚╝ ╚╝╚╝  ╚═╝
-                   ╔═╝║                 
+                   ╔═╝║
                    ╚══╝
-                   
+
 Version: 0.6
 Developer: Akash Bora (Akascape)
 License: MIT
@@ -29,7 +29,7 @@ import webbrowser
 import random
 
 customtkinter.set_appearance_mode("Dark")
-        
+
 root = customtkinter.CTk()
 root.geometry("1100x600")
 root.minsize(800,430)
@@ -44,11 +44,11 @@ if sys.platform.startswith("win"):
     # Apply the mica theme for windows if possible (works with windows 11)
     from ctypes import windll, byref, sizeof, c_int
     HWND = windll.user32.GetParent(root.winfo_id())
-    if sys.getwindowsversion().build < 22523:    
+    if sys.getwindowsversion().build < 22523:
         windll.dwmapi.DwmSetWindowAttribute(HWND, 1029, byref(c_int(0x01)), sizeof(c_int))
     else:
         windll.dwmapi.DwmSetWindowAttribute(HWND, 35, byref(c_int(35)), sizeof(c_int))
-        
+
 def exit_program():
     x = tk.messagebox.askquestion("Exit?", "Do you want to close this program?")
     if x=="yes":
@@ -91,13 +91,13 @@ sequence = False
 def operation():
     # main function that will do the magic
     global image, outputImage
-    
+
     if not file:
         return
-    
+
     def getChar(inputInt):
         return charArray[math.floor(inputInt*interval)]
-        
+
     chars = textbox.get('1.0', tk.END)[::-1]
     charArray = list(chars)
     charLength = len(charArray)
@@ -107,9 +107,9 @@ def operation():
     oneCharHeight = int(slider_height.get())
     s = int(slider_size.get())
     im = Image.open(file).convert('RGB')
-    
+
     if selected_font:
-        fnt = ImageFont.truetype(selected_font, int(s))
+        fnt = ImageFont.truetype(selected_font, s)
     else:
         fnt = ImageFont.load_default()
 
@@ -119,40 +119,44 @@ def operation():
     pix = im.load()
     outputImage = Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = background)
     d = ImageDraw.Draw(outputImage)
-    
+
     new_r = int(slider_r.get())
     new_g = int(slider_g.get())
     new_b = int(slider_b.get())
     auto = automatic.get()
-    
+
     # replace the pixels with text
     for i in range(height):
         for j in range(width):
             r, g, b = pix[j, i]
-            
+
             if auto==0:
                 if r>=new_r: r = new_r
                 if g>=new_g: g = new_g
                 if b>=new_b: b = new_b
-            
+
             h = int(r/3 + g/3 + b/3)
             pix[j, i] = (h, h, h)
             d.text((j*oneCharWidth, i*oneCharHeight), getChar(h), font = fnt, fill = (r, g, b))
-                
-                
-    # some other enhancements like saturation and brightness            
+
+
+    # some other enhancements like saturation and brightness
     outputImage = ImageEnhance.Color(outputImage).enhance(slider_sat.get())
     outputImage = ImageEnhance.Brightness(outputImage).enhance(slider_br.get())
 
     # update the label
     image = customtkinter.CTkImage(outputImage, size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
     label_image.configure(image=image)
-    
+
 def openfile():
     # opening and loading the file
     global file, image, img, dir_, sequence, previous
-    file = filedialog.askopenfilename(filetypes =[('Images', ['*.png','*.jpg','*.jpeg','*.bmp','*webp']),('All Files', '*.*')])
-    if file:
+    if file := filedialog.askopenfilename(
+        filetypes=[
+            ('Images', ['*.png', '*.jpg', '*.jpeg', '*.bmp', '*webp']),
+            ('All Files', '*.*'),
+        ]
+    ):
         # check if imported image is valid or not
         try:
             Image.open(file)
@@ -160,28 +164,30 @@ def openfile():
             tk.messagebox.showerror("Oops!", "Not a valid image file!")
             file = previous
             return
-        
+
         sequence = False
         previous = file
-        
+
         if len(os.path.basename(file))>=50:
-            open_button.configure(text=os.path.basename(file)[:40]+"..."+os.path.basename(file)[-3:])
+            open_button.configure(
+                text=f"{os.path.basename(file)[:40]}...{os.path.basename(file)[-3:]}"
+            )
         else:
             open_button.configure(text=os.path.basename(file))
-            
-        img = Image.open(file)   
+
+        img = Image.open(file)
         image = customtkinter.CTkImage(img)
         label_image.configure(image=image)
         image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
-        
+
         dir_ = os.path.dirname(file)
         if len(dir_)>=30:
-            entry_location.configure(text=dir_[:25]+"..."+dir_[-5:])
+            entry_location.configure(text=f"{dir_[:25]}...{dir_[-5:]}")
         else:
             entry_location.configure(text=dir_)
-            
-        var.set(os.path.basename(file)[:-4]+"_Ascified")
-        
+
+        var.set(f"{os.path.basename(file)[:-4]}_Ascified")
+
         try:
             root.unbind("<KeyRelease-Left>")
             root.unbind("<KeyRelease-Right>")
@@ -189,10 +195,9 @@ def openfile():
             RightClickMenu.delete("Previous Frame")
         except:
             None
-    else:
-        if previous!="":
-            file = previous
-            
+    elif previous!="":
+        file = previous
+
 def frame_next():
     # load next frame of sequence
     global frame_no, file
@@ -200,7 +205,7 @@ def frame_next():
         file = allitems[frame_no+1]
         frame_no+=1
         operation()
-    
+
 def frame_previous():
     # load previous frame of sequence
     global frame_no, file
@@ -208,48 +213,46 @@ def frame_previous():
         file = allitems[frame_no-1]
         frame_no-=1
         operation()
-  
+
 def open_sequence():
     # opening a sequence of images (folder)
-    
+
     global dir_, file, img, image, allitems, sequence
-    dir_img = filedialog.askdirectory()
-    if dir_img:
-        
+    if dir_img := filedialog.askdirectory():
         allitems = glob.glob(dir_img+'\*.png')
         allitems.extend(glob.glob(dir_img+'\*.jpeg'))
         allitems.extend(glob.glob(dir_img+'\*.jpg'))
         allitems.extend(glob.glob(dir_img+'\*.bmp'))
         allitems.extend(glob.glob(dir_img+'\*.webp'))
-        
+
         if len(allitems) == 0:
             tk.messagebox.showinfo("Oops!", "No valid image files present in this folder!")
             return
-        
+
         sequence = True
         if len(dir_img)>=50:
-            open_button.configure(text=dir_img[:40]+"..."+dir_img[-3:])
+            open_button.configure(text=f"{dir_img[:40]}...{dir_img[-3:]}")
         else:
             open_button.configure(text=dir_img)
-            
+
         dir_ = os.path.dirname(dir_img)
         if len(dir_)>=30:
-            entry_location.configure(text=dir_[:25]+"..."+dir_[-5:])
+            entry_location.configure(text=f"{dir_[:25]}...{dir_[-5:]}")
         else:
             entry_location.configure(text=dir_)
-            
+
         try:
             RightClickMenu.delete("Next Frame")
             RightClickMenu.delete("Previous Frame")
         except:
             None
-            
-        var.set(os.path.basename(dir_img)+"_Ascified")
+
+        var.set(f"{os.path.basename(dir_img)}_Ascified")
         RightClickMenu.add_command(label="Next Frame", command=lambda: frame_next())
         RightClickMenu.add_command(label="Previous Frame", command=lambda: frame_previous())
-        
+
         file = allitems[0]
-        img = Image.open(file)   
+        img = Image.open(file)
         image = customtkinter.CTkImage(img)
         label_image.configure(image=image)
         image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
@@ -261,13 +264,13 @@ def resize_event(event):
     global image
     if image!="":
         image.configure(size=(event.height,event.height*img.size[1]/img.size[0]))
-        
+
 open_button = customtkinter.CTkButton(root, text="OPEN", fg_color=app_color, command=openfile)
 open_button.grid(row=1, column=0, sticky="wen", pady=20, padx=(20,0))
 
 image = ""
 
-# TABS        
+# TABS
 frame_left.bind("<Configure>", resize_event)
 tabview = customtkinter.CTkTabview(root, fg_color="#1b202c",
                                    segmented_button_fg_color="#0e1321",
@@ -288,7 +291,7 @@ def show_original():
         image = customtkinter.CTkImage(img)
         image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
         label_image.configure(image=image)
-        
+
 RightClickMenu = tk.Menu(frame_left, tearoff=False, background='#343e5a', fg='white', borderwidth=0, bd=0)
 RightClickMenu.add_command(label="Show Original", command=lambda: show_original())
 RightClickMenu.add_command(label="Show Ascified", command=lambda: operation())
@@ -329,8 +332,15 @@ tabview.tab("Size").columnconfigure(0, weight=1)
 label_4 = customtkinter.CTkLabel(tabview.tab("Size"), text="Character size: 15")
 label_4.grid(row=0, column=0, sticky="wn", pady=10, padx=20)
 
-slider_size = customtkinter.CTkSlider(tabview.tab("Size"), hover=False, height=20, button_color="white",
-                                      from_=1, to=100, command=lambda e: label_4.configure(text="Character size: "+str(int(e))))
+slider_size = customtkinter.CTkSlider(
+    tabview.tab("Size"),
+    hover=False,
+    height=20,
+    button_color="white",
+    from_=1,
+    to=100,
+    command=lambda e: label_4.configure(text=f"Character size: {int(e)}"),
+)
 
 slider_size.bind("<ButtonRelease-1>", lambda event: operation())
 slider_size.grid(row=1, column=0, sticky="we", pady=0, padx=20)
@@ -339,8 +349,17 @@ slider_size.set(15)
 label_14 = customtkinter.CTkLabel(tabview.tab("Size"), text="Scale factor: 0.09")
 label_14.grid(row=2, column=0, sticky="wn", pady=10, padx=20)
 
-slider_scale = customtkinter.CTkSlider(tabview.tab("Size"), hover=False, height=20, button_color="white",
-                                      from_=0.01, to=0.2, command=lambda e: label_14.configure(text="Scale factor: "+str(round(e,3))))
+slider_scale = customtkinter.CTkSlider(
+    tabview.tab("Size"),
+    hover=False,
+    height=20,
+    button_color="white",
+    from_=0.01,
+    to=0.2,
+    command=lambda e: label_14.configure(
+        text=f"Scale factor: {str(round(e, 3))}"
+    ),
+)
 slider_scale.set(0.09)
 slider_scale.bind("<ButtonRelease-1>", lambda event: operation())
 slider_scale.grid(row=3, column=0, sticky="we", pady=0, padx=20)
@@ -348,8 +367,15 @@ slider_scale.grid(row=3, column=0, sticky="we", pady=0, padx=20)
 label_12 = customtkinter.CTkLabel(tabview.tab("Size"), text="Scale width: 10")
 label_12.grid(row=4, column=0, sticky="wn", pady=10, padx=20)
 
-slider_width = customtkinter.CTkSlider(tabview.tab("Size"), hover=False, height=20, button_color="white",
-                                      from_=1, to=30, command=lambda e: label_12.configure(text="Scale width: "+str(int(e))))
+slider_width = customtkinter.CTkSlider(
+    tabview.tab("Size"),
+    hover=False,
+    height=20,
+    button_color="white",
+    from_=1,
+    to=30,
+    command=lambda e: label_12.configure(text=f"Scale width: {int(e)}"),
+)
 slider_width.set(10)
 slider_width.bind("<ButtonRelease-1>", lambda event: operation())
 slider_width.grid(row=5, column=0, sticky="we", pady=0, padx=20)
@@ -357,15 +383,22 @@ slider_width.grid(row=5, column=0, sticky="we", pady=0, padx=20)
 label_13 = customtkinter.CTkLabel(tabview.tab("Size"), text="Scale height: 18")
 label_13.grid(row=6, column=0, sticky="wn", pady=10, padx=20)
 
-slider_height = customtkinter.CTkSlider(tabview.tab("Size"), hover=False, height=20, button_color="white",
-                                      from_=1, to=30, command=lambda e: label_13.configure(text="Scale height: "+str(int(e))))
+slider_height = customtkinter.CTkSlider(
+    tabview.tab("Size"),
+    hover=False,
+    height=20,
+    button_color="white",
+    from_=1,
+    to=30,
+    command=lambda e: label_13.configure(text=f"Scale height: {int(e)}"),
+)
 slider_height.set(18)
 slider_height.bind("<ButtonRelease-1>", lambda event: operation())
 slider_height.grid(row=7, column=0, sticky="we", pady=0, padx=20)
 
 # TAB 3 (Colors)
 tabview.tab("Colors").columnconfigure(0, weight=1)
-    
+
 def toggle_rgb():
     # Turn off/on automatic colors
     if automatic.get()==1:
@@ -378,8 +411,8 @@ def toggle_rgb():
         slider_g.configure(state="normal", button_color="white")
         slider_b.configure(state="normal", button_color="white")
         label_3.configure(state="normal")
-    operation()  
-    
+    operation()
+
 automatic = customtkinter.CTkSwitch(tabview.tab("Colors"), text="Automatic Colors",
                                     progress_color=app_color, command=toggle_rgb)
 automatic.grid(row=0, column=0, sticky="wn", pady=10, padx=20)
@@ -415,14 +448,14 @@ def change_bg():
     pick_color = CTkColorPicker.AskColor()
     pick_color.wm_iconbitmap()
     pick_color.iconphoto(False, icopath)
-    
+
     color = pick_color.get()
     if color is None:
         return
     bg_color.configure(fg_color=color)
     background = color
     operation()
-    
+
 bg_color = customtkinter.CTkButton(tabview.tab("Colors"), corner_radius=20, fg_color="black", border_width=2,
                                          text="", hover=False, command=change_bg)
 bg_color.grid(row=5, column=0, sticky="wn", padx=(100,20), pady=10)
@@ -453,18 +486,14 @@ def change_font(font):
     global selected_font
     selected_font = font
     operation()
-    
+
 def populate(frame):
     # load system fonts  (not all at once because it will lag)
     global loaded_fonts, all_fonts, l
     all_fonts = matplotlib.font_manager.findSystemFonts()
 
-    if len(all_fonts)<100:
-        l = len(all_fonts)
-    else:
-        l = 50
-        
-    for filename in sorted(all_fonts)[:l]: 
+    l = len(all_fonts) if len(all_fonts)<100 else 50
+    for filename in sorted(all_fonts)[:l]:
         if "Emoji" not in filename and "18030" not in filename:
             font_load = ImageFont.FreeTypeFont(filename)
             name = font_load.getname()[0]
@@ -475,7 +504,7 @@ def populate(frame):
 def onFrameConfigure(canvas):
     '''Reset the scroll region to encompass the inner frame'''
     canvas.configure(scrollregion=canvas.bbox("all"))
-        
+
 tabview.tab("Font").rowconfigure(0, weight=1)
 tabview.tab("Font").columnconfigure((0,1), weight=1)
 
@@ -510,15 +539,16 @@ def add_more_fonts():
     l+=50
     if l>len(all_fonts)-50:
         l = len(all_fonts)
-        
+
 def loadcustom():
     # load custom font file
     global selected_font
-    font_open = filedialog.askopenfilename(filetypes =[('Font Files', ['*.ttf','*.otf','*.TTF'])])
-    if font_open:
+    if font_open := filedialog.askopenfilename(
+        filetypes=[('Font Files', ['*.ttf', '*.otf', '*.TTF'])]
+    ):
         selected_font = font_open
         operation()
-    
+
 load_more = customtkinter.CTkButton(tabview.tab("Font"), fg_color="#1b2f30", text="Load More", hover=False, command=add_more_fonts)
 load_more.grid(row=1, sticky="sew", columnspan=2)
 
@@ -546,12 +576,12 @@ def changedir():
     if not dir_:
         return
     if len(dir_)>=30:
-        entry_location.configure(text=dir_[:25]+"..."+dir_[-5:])
+        entry_location.configure(text=f"{dir_[:25]}...{dir_[-5:]}")
     else:
         entry_location.configure(text=dir_)
 
 def export():
-    # Saving rendered images    
+    # Saving rendered images
     global file, convert_seq
     if not file:
         tk.messagebox.showinfo("Uh!","Please import an image!")
@@ -561,7 +591,7 @@ def export():
     if sequence is False:
         # single image save
         operation()
-        exported_file = os.path.join(dir_,var.get()+"."+format_.get())
+        exported_file = os.path.join(dir_, f"{var.get()}.{format_.get()}")
         if os.path.exists(exported_file):
             res1 = tk.messagebox.askquestion("Warning!","Do you want to replace the old file with the new one? \n(Process not reversible!)")
             if res1=='yes':
@@ -571,14 +601,12 @@ def export():
                 open_button.configure(state="normal")
                 return
         else:
-            outputImage.save(exported_file)            
+            outputImage.save(exported_file)
         tk.messagebox.showinfo("Exported", "Image successfully saved")
-        
+
     else:
-        # image sequence
-        count = 1
         new_dir = os.path.join(dir_, var.get())
-        
+
         if os.path.exists(new_dir):
             tk.messagebox.showinfo("Warning!", "A folder with this name already exists, please try a new name!")
         else:
@@ -586,40 +614,45 @@ def export():
             progress_bar.grid(row=5, column=0, sticky="we", padx=20, pady=(0,20))
             cancel_button.grid(row=4, column=0, sticky="ne", padx=(0,20))
             os.mkdir(new_dir)
-            
+
+            # image sequence
+            count = 1
             for i in allitems:
                 if convert_seq==False:
                     break
                 progress_bar.set(count/len(allitems))
-                label_11.configure(text="Frame: "+str(count))
+                label_11.configure(text=f"Frame: {str(count)}")
                 file = i
                 operation()
-                exported_file = os.path.join(new_dir, os.path.basename(file)[:-4]+"_ascified."+format_.get())
+                exported_file = os.path.join(
+                    new_dir,
+                    f"{os.path.basename(file)[:-4]}_ascified.{format_.get()}",
+                )
                 outputImage.save(exported_file)
                 count+=1
-                
+
             tk.messagebox.showinfo("Exported", "Images successfully saved")
             convert_seq = True
-            
+
         label_11.grid_forget()
         progress_bar.grid_forget()
         cancel_button.grid_forget()
 
     save.configure(state="normal", fg_color=app_color)
     open_button.configure(state="normal")
-    
+
 def new_window():
     # About window
-    
+
     info.unbind("<Button-1>")
-    
+
     def exit_top_level():
         top_level.destroy()
         info.bind("<Button-1>", lambda event: new_window())
-        
+
     def web(link):
         webbrowser.open_new_tab(link)
-        
+
     top_level = customtkinter.CTkToplevel(root)
     top_level.config(background="#1b202c")
     top_level.protocol("WM_DELETE_WINDOW", exit_top_level)
@@ -629,31 +662,31 @@ def new_window():
     top_level.resizable(width=False, height=False)
     top_level.wm_iconbitmap()
     top_level.iconphoto(False, icopath)
-    
+
     label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.6", font=("Roboto",15))
     label_top.grid(padx=20, pady=20, sticky="w")
-    
+
     desc = "Developed by Akash Bora (Akascape) \n \nLicense: MIT \nCopyright 2023"
     label_disc = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text=desc, justify="left", font=("Roboto",12))
     label_disc.grid(padx=20, pady=0, sticky="w")
 
     logo = customtkinter.CTkImage(Image.open(resource("icon.png")), size=(150,150))
-    
+
     label_logo = customtkinter.CTkLabel(top_level, text="", image=logo, bg_color="#1b202c")
     label_logo.place(x=230,y=30)
-    
+
     link = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Official Page", justify="left", font=("",13), text_color="light blue")
-    link.grid(padx=20, pady=0, sticky="w")   
+    link.grid(padx=20, pady=0, sticky="w")
     link.bind("<Button-1>", lambda event: web("https://github.com/Akascape/Ascify-Art"))
     link.bind("<Enter>", lambda event: link.configure(font=("", 13, "underline"), cursor="hand2"))
     link.bind("<Leave>", lambda event: link.configure(font=("", 13), cursor="arrow"))
 
     link2 = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Documentation", justify="left", anchor="n", font=("",13), text_color="light blue")
-    link2.grid(padx=20, pady=0, sticky="nw")   
+    link2.grid(padx=20, pady=0, sticky="nw")
     link2.bind("<Button-1>", lambda event: web("https://github.com/Akascape/Ascify-Art/wiki"))
     link2.bind("<Enter>", lambda event: link2.configure(font=("", 13, "underline"), cursor="hand2"))
     link2.bind("<Leave>", lambda event: link2.configure(font=("", 13), cursor="arrow"))
-    
+
 entry_location = customtkinter.CTkButton(tabview.tab("Export"), corner_radius=20, width=10, fg_color="#343638", border_width=2,
                                          text="Browse Location", hover=False, command=changedir)
 entry_location.grid(row=2, column=0, sticky="ew", padx=20, pady=20)
@@ -669,9 +702,9 @@ save.grid(row=3, column=0, sticky="ew", padx=20, pady=20)
 
 def stop_sequence():
     # stop sequence conversion
-    global convert_seq    
+    global convert_seq
     convert_seq = False
-    
+
 convert_seq = True
 
 cancel_button = customtkinter.CTkButton(tabview.tab("Export"), text="x", width=10, height=20, corner_radius=10,
@@ -686,4 +719,3 @@ info.grid(row=6, column=0, sticky="sw", padx=20, pady=20)
 
 root.mainloop()
 #------------------------------------------------------------------------------------------------#
-
