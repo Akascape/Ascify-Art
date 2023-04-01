@@ -6,7 +6,7 @@
 
 ### <p align='center'> Windows Version <br> <p align='center'> [<img src="https://img.shields.io/badge/FREE-Ascify_Art-informational?&logo=Microsoft&logoColor=blue&color=007ec6" width="300">](https://github.com/Akascape/Ascify-Art/releases/download/v0.7/Ascify-Art_v0.7_win64.zip)  <p align='center'>
 
-<br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.6.zip) <br> Don't forget to leave a ⭐ </p>
+<br> <p align='center'> **SOURCE CODE** <br> <p align='center'> [<img src="https://img.shields.io/badge/Python_Version-informational?style=flat&logo=python&logoColor=blue&color=eaea4a" width=200 height=40>](https://github.com/Akascape/Ascify-Art/archive/refs/heads/Ascify-Art_v0.7.zip) <br> Don't forget to leave a ⭐ </p>
 
 **CURRENT VERSION: 0.7**
 
