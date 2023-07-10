@@ -8,7 +8,7 @@
 ╚╝ ╚╝╚══╝╚══╝╚╝ ╚╝ ╚═╗╔╝    ╚╝ ╚╝╚╝  ╚═╝
                    ╔═╝║
                    ╚══╝
-Version: 0.7
+Version: 0.8
 Developer: Akash Bora (Akascape)
 License: MIT
 More info: https://github.com/Akascape/Ascify-Art
@@ -45,10 +45,7 @@ if sys.platform.startswith("win"):
     try:
         from ctypes import windll, byref, sizeof, c_int
         HWND = windll.user32.GetParent(root.winfo_id())
-        if sys.getwindowsversion().build < 22523:
-            windll.dwmapi.DwmSetWindowAttribute(HWND, 1029, byref(c_int(0x01)), sizeof(c_int))
-        else:
-            windll.dwmapi.DwmSetWindowAttribute(HWND, 35, byref(c_int(35)), sizeof(c_int))
+        windll.dwmapi.DwmSetWindowAttribute(HWND, 35, byref(c_int(0x34241e)), sizeof(c_int))
     except:
         pass
     
@@ -73,12 +70,12 @@ root.protocol("WM_DELETE_WINDOW", exit_program)
 
 app_color = random.choice(["#487a7d", "#e49c04", "#84b701", "#e52aff", "#5591c8"])
 
-frame_left = customtkinter.CTkFrame(root, width=350, fg_color="#1b202c", corner_radius=20)
-frame_left.grid(column=1, row=0, rowspan=10, sticky="nsew", padx=20, pady=20)
-frame_left.rowconfigure(0, weight=1)
-frame_left.columnconfigure(0, weight=1)
+frame_image = customtkinter.CTkFrame(root, width=350, fg_color="#1b202c", corner_radius=20)
+frame_image.grid(column=1, row=0, rowspan=10, sticky="nsew", padx=20, pady=20)
+frame_image.rowconfigure(0, weight=1)
+frame_image.columnconfigure(0, weight=1)
 
-label_image = customtkinter.CTkLabel(frame_left, width=350, fg_color="#1b202c", corner_radius=0, text="")
+label_image = customtkinter.CTkLabel(frame_image, width=350, fg_color="#1b202c", corner_radius=0, text="")
 label_image.grid(sticky="nsew", padx=5, pady=5)
 
 title = customtkinter.CTkImage(Image.open(resource("title.png")), size=(250,40))
@@ -148,7 +145,7 @@ def operation():
     outputImage = ImageEnhance.Brightness(outputImage).enhance(slider_br.get())
 
     # update the label
-    image = customtkinter.CTkImage(outputImage, size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
+    image = customtkinter.CTkImage(outputImage, size=(frame_image.winfo_height(),frame_image.winfo_height()*img.size[1]/img.size[0]))
     label_image.configure(image=image)
 
 def openfile():
@@ -181,7 +178,7 @@ def openfile():
         img = Image.open(file)
         image = customtkinter.CTkImage(img)
         label_image.configure(image=image)
-        image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
+        image.configure(size=(frame_image.winfo_height(),frame_image.winfo_height()*img.size[1]/img.size[0]))
 
         dir_ = os.path.dirname(file)
         if len(dir_)>=30:
@@ -258,7 +255,7 @@ def open_sequence():
         img = Image.open(file)
         image = customtkinter.CTkImage(img)
         label_image.configure(image=image)
-        image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
+        image.configure(size=(frame_image.winfo_height(),frame_image.winfo_height()*img.size[1]/img.size[0]))
         root.bind("<KeyRelease-Left>", lambda e: frame_previous())
         root.bind("<KeyRelease-Right>", lambda e: frame_next())
 
@@ -270,11 +267,12 @@ def resize_event(event):
 
 open_button = customtkinter.CTkButton(root, text="OPEN", fg_color=app_color, command=openfile)
 open_button.grid(row=1, column=0, sticky="wen", pady=20, padx=(20,0))
+root.bind("<Control-o>", lambda e: openfile())
 
 image = ""
 
 # TABS
-frame_left.bind("<Configure>", resize_event)
+frame_image.bind("<Configure>", resize_event)
 tabview = customtkinter.CTkTabview(root, fg_color="#1b202c",
                                    segmented_button_fg_color="#0e1321",
                                    segmented_button_selected_color=app_color,
@@ -292,20 +290,21 @@ def show_original():
     global image
     if file:
         image = customtkinter.CTkImage(img)
-        image.configure(size=(frame_left.winfo_height(),frame_left.winfo_height()*img.size[1]/img.size[0]))
+        image.configure(size=(frame_image.winfo_height(),frame_image.winfo_height()*img.size[1]/img.size[0]))
         label_image.configure(image=image)
 
-RightClickMenu = tk.Menu(frame_left, tearoff=False, background='#343e5a', fg='white', borderwidth=0, bd=0)
+RightClickMenu = tk.Menu(frame_image, tearoff=False, background='#343e5a', fg='white', borderwidth=0, bd=0, activebackground=app_color)
 RightClickMenu.add_command(label="Show Original", command=lambda: show_original())
 RightClickMenu.add_command(label="Show Ascified", command=lambda: operation())
-
+root.bind("<Return>", lambda e: operation())
+                 
 def do_popup(event, frame):
     try: frame.tk_popup(event.x_root, event.y_root)
     finally: frame.grab_release()
 
 label_image.bind("<Button-3>", lambda event: do_popup(event, frame=RightClickMenu))
 
-RightClickMenu2 = tk.Menu(frame_left, tearoff=False, background=app_color, fg='white')
+RightClickMenu2 = tk.Menu(frame_image, tearoff=False, background='#343e5a', fg='white', borderwidth=0, bd=0, activebackground=app_color)
 RightClickMenu2.add_command(label="Open Image Sequence", command=lambda: open_sequence())
 
 open_button.bind("<Button-3>", lambda event: do_popup(event, frame=RightClickMenu2))
@@ -503,29 +502,19 @@ def populate(frame):
                 name = " ".join(font_load.getname())
             else:
                 name = font_load.getname()[0]
-            label = customtkinter.CTkButton(frame, text=name, font=(name, 16), fg_color="#1b202c", text_color="white",
+            try:
+                label = customtkinter.CTkButton(frame, text=name, font=(name, 16), fg_color="#1b202c", text_color="white",
                                             anchor="w", command=lambda event=filename: change_font(event)).grid(sticky="w")
-            loaded_fonts.append(name)
-
-def onFrameConfigure(canvas):
-    '''Reset the scroll region to encompass the inner frame'''
-    canvas.configure(scrollregion=canvas.bbox("all"))
-
+                loaded_fonts.append(name)
+            except: pass
+            
 tabview.tab("Font").rowconfigure(0, weight=1)
-tabview.tab("Font").columnconfigure((0,1), weight=1)
+tabview.tab("Font").columnconfigure(0, weight=1)
 
 loaded_fonts = []
-canvas = tk.Canvas(tabview.tab("Font"), borderwidth=0, width=100, background="#1b202c", relief="flat", highlightthickness=0)
-frame = tk.Frame(canvas, background="#1b202c")
-vsb = customtkinter.CTkScrollbar(tabview.tab("Font"), orientation="vertical", command=canvas.yview)
 
-canvas.configure(yscrollcommand=vsb.set)
-vsb.grid(row=0, column=1, sticky="nse")
-
-canvas.grid(row=0, column=0, sticky="nsew")
-canvas.create_window((4,4), window=frame, anchor="nw")
-
-frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
+frame = customtkinter.CTkScrollableFrame(tabview.tab("Font"), fg_color="transparent")
+frame.grid(padx=2, pady=2, sticky="news")
 
 threading.Thread(target= lambda: populate(frame)).start()
 
@@ -542,9 +531,11 @@ def add_more_fonts():
                 name = " ".join(font_load.getname())
             else:
                 name = font_load.getname()[0]
+
             label = customtkinter.CTkButton(frame, text=name, font=(name, 16), fg_color="#1b202c", text_color="white",
-                                            anchor="w", command=lambda event=filename: change_font(event)).grid(sticky="w")
+                                                anchor="w", command=lambda event=filename: change_font(event)).grid(sticky="w")
             loaded_fonts.append(name)
+
     l+=50
     if l>len(all_fonts)-50:
         l = len(all_fonts)
@@ -561,7 +552,7 @@ def loadcustom():
 load_more = customtkinter.CTkButton(tabview.tab("Font"), fg_color="#1b2f30", text="Load More", hover=False, command=add_more_fonts)
 load_more.grid(row=1, sticky="sew", columnspan=2)
 
-RightClickMenu3 = tk.Menu(frame_left, tearoff=False, background="#1b2f30", fg='white', borderwidth=0, bd=0)
+RightClickMenu3 = tk.Menu(frame_image, tearoff=False, background='#343e5a', fg='white', borderwidth=0, bd=0, activebackground=app_color)
 RightClickMenu3.add_command(label="Load Font File", command=lambda: loadcustom())
 load_more.bind("<Button-3>", lambda event: do_popup(event, frame=RightClickMenu3))
 
@@ -670,16 +661,14 @@ def new_window():
     top_level.transient(root)
     top_level.resizable(width=False, height=False)
     top_level.wm_iconbitmap()
-    top_level.iconphoto(False, icopath)
+    top_level.after(200, lambda: top_level.iconphoto(False, icopath))
 
-    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.7", font=("Roboto",15))
+    label_top = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text="Ascify-Art v0.8", font=("Roboto",15))
     label_top.grid(padx=20, pady=20, sticky="w")
 
     desc = "Developed by Akash Bora (Akascape) \n \nLicense: MIT \nCopyright 2023"
     label_disc = customtkinter.CTkLabel(top_level, fg_color="#1b202c", text=desc, justify="left", font=("Roboto",12))
     label_disc.grid(padx=20, pady=0, sticky="w")
-
-    logo = customtkinter.CTkImage(Image.open(resource("icon.png")), size=(150,150))
 
     label_logo = customtkinter.CTkLabel(top_level, text="", image=logo, bg_color="#1b202c")
     label_logo.place(x=230,y=30)
@@ -696,18 +685,21 @@ def new_window():
     link2.bind("<Enter>", lambda event: link2.configure(font=("", 13, "underline"), cursor="hand2"))
     link2.bind("<Leave>", lambda event: link2.configure(font=("", 13), cursor="arrow"))
 
+logo = customtkinter.CTkImage(Image.open(resource("icon.png")), size=(150,150))
+
 entry_location = customtkinter.CTkButton(tabview.tab("Export"), corner_radius=20, width=10, fg_color="#343638", border_width=2,
                                          text="Browse Location", hover=False, command=changedir)
 entry_location.grid(row=2, column=0, sticky="ew", padx=20, pady=20)
 
 label_11 = customtkinter.CTkLabel(tabview.tab("Export"), text="Frame: 1")
-
 progress_bar = customtkinter.CTkProgressBar(tabview.tab("Export"), height=20, width=10, progress_color=app_color)
 progress_bar.set(0)
 
 save = customtkinter.CTkButton(tabview.tab("Export"), corner_radius=20, width=10, fg_color=app_color,
                                          text="SAVE", hover=False, command=lambda: threading.Thread(target=export).start())
 save.grid(row=3, column=0, sticky="ew", padx=20, pady=20)
+
+root.bind("<Control-s>", lambda e: threading.Thread(target=export).start())
 
 def stop_sequence():
     # stop sequence conversion
