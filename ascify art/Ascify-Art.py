@@ -447,7 +447,7 @@ label_6.grid(row=5, column=0, sticky="wn", pady=10, padx=20)
 def change_bg():
     # open my special color picker
     global background
-    pick_color = CTkColorPicker.AskColor()
+    pick_color = CTkColorPicker.AskColor(fg_color="#1e2434", bg_color="#1b202c", button_color=app_color)
     pick_color.wm_iconbitmap()
     pick_color.iconphoto(False, icopath)
 
